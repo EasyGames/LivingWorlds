@@ -1,0 +1,22 @@
+1. Generacja losowa mapy:
+- generacja wielkoœci mapy ( wpisywana przez u¿ytkownika lub losowa )
+- rozmieszczenie naturalnych elementów mapy w logicznym porzadku ( skaly, drzewa, krzaki )
+- Logiczne umiejscowienie wiosek
+- rozmieszczenie NPC
+2. User interface:
+- wyœwietlanie surowców gracza
+- wyœwietlanie wiadomoœci do gracza
+- (opcjonalne) inwentarz przedmiotów/surowców
+- menu budowania budynków dla gracza
+3. Player:
+- poruszanie siê gracza i kamery
+- interakcje gracza z otoczeniem
+- system budowania budynkow przez gracza
+- (opcjonalne) system przylaczania gracza do wiosek
+- (opcjonalne) system handlu z npc
+4. NPC:
+- system NPC ¿yjacych w i budujacych wioski
+- system zbierania surowcow przez npc
+
+to be continued
+
