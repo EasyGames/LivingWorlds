@@ -35,27 +35,28 @@ public class CreatingMap : MonoBehaviour
 	void Start () 
 	{
 		mapGenerator = GameObject.Find("MapGenerator").GetComponent<MapGenerator>();
-		columns = mapGenerator.size_x;
-		rows = mapGenerator.size_z;
+		columns = mapGenerator.size_x+1;
+		rows = mapGenerator.size_z+1;
 		columnsXrows = columns*rows;
 
 		//InstantiateRandomScale(ground, 3, 3);
 		gridPositions = new Vector3[columnsXrows];
 		positionsBool = new bool[columnsXrows];
 		InitialiseGrid();
-		LayoutObjectAtRandom(treeTiles, 100, 100);
+		LayoutObjectAtRandom(treeTiles, 10, 80);
 		CheckPositions();
 	}
 
 	void InitialiseGrid ()
 	{
-		int i = columnsXrows;
-		for(int x = 0; x < columns; x++)
-		{
-			for(int z = 0; z < rows; z++)
-			{
-				i--;
-				gridPositions[i] = new Vector3(x, 0.5f, z);
+        float y;
+        int i = 0;
+        for (int z = 0; z < rows; z++)
+        {
+            for (int x = 0; x < columns; x++)
+		    { 
+                y = mapGenerator.verticesPositions[z,x].y;
+				gridPositions[z * columns + x] = new Vector3(x, y+0.5f, z);
 			}
 		}
 	}

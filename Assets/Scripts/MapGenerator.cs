@@ -26,7 +26,7 @@ public class MapGenerator : MonoBehaviour
     public int tileResolution;
 
     Vector3[] vertices;
-    Vector3[,] verticesPositions;
+    public Vector3[,] verticesPositions;
     Vector3[] normals;
     Vector2[] uv;
 
@@ -190,8 +190,8 @@ public class MapGenerator : MonoBehaviour
                 noError = false;
                 rpositionz = Random.Range(1, size_z);
                 rpositionx = Random.Range(1, size_x);
-                rsizez = Random.Range(20, 40);
-                rsizex = Random.Range(20, 40);
+                rsizez = Random.Range(size_z/16, size_z / 4);
+                rsizex = Random.Range(size_x/16, size_z / 4);
                 rheight = Random.Range(-2, 2);
                 if (rpositionz + rsizez < size_z
                     && rpositionx + rsizex < size_x)
@@ -203,8 +203,8 @@ public class MapGenerator : MonoBehaviour
                 {
                     rpositionz = Random.Range(1, size_z);
                     rpositionx = Random.Range(1, size_x);
-                    rsizez = Random.Range(20, 40);
-                    rsizex = Random.Range(20, 40);
+                    rsizez = Random.Range(size_z / 16, size_z / 4);
+                    rsizex = Random.Range(size_x / 16, size_z / 4);
                     rheight = Random.Range(-1, 1);
                 }
             } while (!noError);
