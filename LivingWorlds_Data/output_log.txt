@@ -1,0 +1,183 @@
+Initialize engine version: 5.3.0f4 (2524e04062b4)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 650 (ID=0xfc6)
+    Vendor:   NVIDIA
+    VRAM:     1986 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Unity Projects\LivingWorlds\LivingWorlds_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Unity Projects\LivingWorlds\LivingWorlds_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Unity Projects\LivingWorlds\LivingWorlds_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Unity Projects\LivingWorlds\LivingWorlds_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Unity Projects\LivingWorlds\LivingWorlds_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Unity Projects\LivingWorlds\LivingWorlds_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Unity Projects\LivingWorlds\LivingWorlds_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Unity Projects\LivingWorlds\LivingWorlds_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.037 seconds
+Platform assembly: D:\Unity Projects\LivingWorlds\LivingWorlds_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Unity Projects\LivingWorlds\LivingWorlds_Data\Managed\System.dll (this message is harmless)
+desktop: 1600x1200 60Hz; virtual: 1600x1200 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.461668 ms
+Done Verts!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Triangles!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Mesh!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2260 -> priority: 1 
+  Thread -> id: 13c0 -> priority: 1 
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.166834 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 160.
+Total: 0.524773 ms (FindLiveObjects: 0.018906 ms CreateObjectMapping: 0.011241 ms MarkObjects: 0.064638 ms  DeleteObjects: 0.428965 ms)
+
+Done Verts!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Triangles!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Mesh!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.203113 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 160.
+Total: 0.382211 ms (FindLiveObjects: 0.006131 ms CreateObjectMapping: 0.004343 ms MarkObjects: 0.035768 ms  DeleteObjects: 0.335712 ms)
+
+Done Verts!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Triangles!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Mesh!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.161213 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 160.
+Total: 0.296366 ms (FindLiveObjects: 0.005365 ms CreateObjectMapping: 0.003832 ms MarkObjects: 0.040622 ms  DeleteObjects: 0.246291 ms)
+
+Done Verts!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Triangles!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Mesh!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.159169 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 160.
+Total: 0.389364 ms (FindLiveObjects: 0.005365 ms CreateObjectMapping: 0.004343 ms MarkObjects: 0.040111 ms  DeleteObjects: 0.339288 ms)
+
+Done Verts!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Triangles!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Mesh!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.162746 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 160.
+Total: 0.306841 ms (FindLiveObjects: 0.005620 ms CreateObjectMapping: 0.003576 ms MarkObjects: 0.030147 ms  DeleteObjects: 0.267496 ms)
+
+Done Verts!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Triangles!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Mesh!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.154059 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 160.
+Total: 0.333157 ms (FindLiveObjects: 0.004854 ms CreateObjectMapping: 0.003576 ms MarkObjects: 0.029381 ms  DeleteObjects: 0.294833 ms)
+
+Done Verts!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Triangles!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Mesh!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.152526 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 160.
+Total: 0.283081 ms (FindLiveObjects: 0.005365 ms CreateObjectMapping: 0.003832 ms MarkObjects: 0.029381 ms  DeleteObjects: 0.244247 ms)
+
+Done Verts!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Triangles!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Mesh!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.149971 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 160.
+Total: 0.339799 ms (FindLiveObjects: 0.004598 ms CreateObjectMapping: 0.003576 ms MarkObjects: 0.028870 ms  DeleteObjects: 0.302498 ms)
+
+Done Verts!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Triangles!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Done Mesh!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
