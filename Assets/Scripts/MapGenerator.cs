@@ -11,6 +11,7 @@ public class MapGenerator : MonoBehaviour
     public int size_x = 100;
     public int size_z = 50;
     public float tileSize = 1.0f;
+    public int numberOfTerreains;
     int numTiles;
     int numTris;
 
@@ -18,6 +19,8 @@ public class MapGenerator : MonoBehaviour
     int vsize_z;
     int numVerts;
     int[] triangles;
+    int[,] tileNumber;
+    bool[,] isTileOccupied;
 
     public Texture2D terrainTiles;
     public int tileResolution;
@@ -40,6 +43,8 @@ public class MapGenerator : MonoBehaviour
         triangles = new int[numTris * 3];
         vertices = new Vector3[numVerts];
         verticesPositions = new Vector3[vsize_z, vsize_x];
+        isTileOccupied = new bool[size_z, size_x];
+        tileNumber = new int[size_z, size_x];
         normals = new Vector3[numVerts];
         uv = new Vector2[numVerts];
         BuildMesh();
@@ -91,7 +96,7 @@ public class MapGenerator : MonoBehaviour
             for(int x=1; x<size_x; x++)
             {
                 Color[] p;
-                if (verticesPositions[y, x].y >= 1.5f)
+                if (verticesPositions[y, x].y >= 1.0f)
                 {
                     p = tiles[1];
                 }
@@ -172,12 +177,88 @@ public class MapGenerator : MonoBehaviour
 
     private void modifyMeshData()
     {
-        for (int z = 1; z < size_z; z++)
+        int rpositionz;
+        int rpositionx;
+        int rsizez;
+        int rsizex;
+        int rheight;
+        bool noError;
+        for (int i=0; i < numberOfTerreains;i++)
         {
-            for (int x = 1; x < size_x; x++)
+            do
             {
-                verticesPositions[z, x].y = Random.Range(1.0f,2.0f);
+                noError = false;
+                rpositionz = Random.Range(1, size_z);
+                rpositionx = Random.Range(1, size_x);
+                rsizez = Random.Range(20, 40);
+                rsizex = Random.Range(20, 40);
+                rheight = Random.Range(-2, 2);
+                if (rpositionz + rsizez < size_z
+                    && rpositionx + rsizex < size_x)
+                {
+                        createTerrain(rpositionx, rpositionz, rsizex, rsizez, rheight);
+                        noError = true;
+                }
+                else
+                {
+                    rpositionz = Random.Range(1, size_z);
+                    rpositionx = Random.Range(1, size_x);
+                    rsizez = Random.Range(20, 40);
+                    rsizex = Random.Range(20, 40);
+                    rheight = Random.Range(-1, 1);
+                }
+            } while (!noError);
+
+
+        }
+
+
+    }
+
+    private void createTerrain(int positonx, int positonz, int sizex, int sizez, float minOrMaxHeight)
+    {
+        for (int z = positonz; z < positonz + sizez; z++)
+        {
+            for (int x = positonx; x < positonx + sizex; x++)
+            {
+                if(z == positonz || x == positonx || z == positonz + sizez-1|| x == positonx + sizex -1)
+                {
+                    if (minOrMaxHeight > 0
+                        && verticesPositions[z + 1, x + 1].y < 1.0f
+                        && verticesPositions[z + 1, x + 1].y >= 0)
+                    verticesPositions[z + 1, x + 1].y -= 0.5f;
+                    else if (minOrMaxHeight < 0
+                        && verticesPositions[z + 1, x + 1].y > -1.0f
+                        && verticesPositions[z + 1, x + 1].y < 0)
+                    verticesPositions[z + 1, x + 1].y += 0.5f;
+                }
+                else
+                {
+                     if (minOrMaxHeight > 0
+                        && verticesPositions[z + 1, x + 1].y < 1.0f)
+                        verticesPositions[z + 1, x + 1].y += minOrMaxHeight;
+                     if (minOrMaxHeight <= 0
+                        && verticesPositions[z+1,x+1].y > -1.0f)
+                        verticesPositions[z + 1, x + 1].y += minOrMaxHeight;
+                }
+                isTileOccupied[z, x] = true;
             }
         }
+    }
+
+    private bool isThereClearence(int positonx, int positonz, int sizex, int sizez)
+    {
+        for (int z = positonz; z < positonz + sizez; z++)
+        {
+            for (int x = positonx; x < positonx + sizex; x++)
+            {
+                if (isTileOccupied[z, x])
+                {
+                    return false;
+                }
+            }
+        }
+        
+                return true;
     }
 }
