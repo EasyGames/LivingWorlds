@@ -43,7 +43,7 @@ public class CreatingMap : MonoBehaviour
 		gridPositions = new Vector3[columnsXrows];
 		positionsBool = new bool[columnsXrows];
 		InitialiseGrid();
-		LayoutObjectAtRandom(treeTiles, 10, 80);
+		LayoutObjectAtRandom(treeTiles, 10, 150);
 		CheckPositions();
 	}
 
@@ -55,8 +55,8 @@ public class CreatingMap : MonoBehaviour
         {
             for (int x = 0; x < columns; x++)
 		    { 
-                y = mapGenerator.verticesPositions[z,x].y;
-				gridPositions[z * columns + x] = new Vector3(x, y+0.5f, z);
+                y = mapGenerator.vertices[z * columns + x].y;
+				gridPositions[z * columns + x] = new Vector3(x, y+1.2f, z);
 			}
 		}
 	}

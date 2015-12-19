@@ -12,6 +12,27 @@ public class MapGenerator : MonoBehaviour
     public int size_z = 50;
     public float tileSize = 1.0f;
     public int numberOfTerreains;
+    public float frequency = 1f;
+
+    [Range(1, 8)]
+    public int octaves = 1;
+
+    [Range(1f, 4f)]
+    public float lacunarity = 2f;
+
+    [Range(0f, 1f)]
+    public float persistence = 0.5f;
+
+    [Range(1, 3)]
+    public int dimensions = 3;
+
+    [Range(1, 100)]
+    public float height;
+
+    public NoiseMethodType type;
+
+    public Gradient coloring;
+
     int numTiles;
     int numTris;
 
@@ -24,9 +45,10 @@ public class MapGenerator : MonoBehaviour
 
     public Texture2D terrainTiles;
     public int tileResolution;
-
-    Vector3[] vertices;
+    Mesh mesh;
+    public Vector3[] vertices;
     public Vector3[,] verticesPositions;
+    Color[] colors;
     Vector3[] normals;
     Vector2[] uv;
 
@@ -40,8 +62,10 @@ public class MapGenerator : MonoBehaviour
         vsize_z = size_z + 1;
         numVerts = vsize_x * vsize_z;
 
+        mesh = new Mesh();
         triangles = new int[numTris * 3];
         vertices = new Vector3[numVerts];
+        colors = new Color[vertices.Length];
         verticesPositions = new Vector3[vsize_z, vsize_x];
         isTileOccupied = new bool[size_z, size_x];
         tileNumber = new int[size_z, size_x];
@@ -57,8 +81,9 @@ public class MapGenerator : MonoBehaviour
         genereteMeshData();
         // Modify the height data for verticies
         modifyMeshData();
+        mainModify();
         // Apply texture to the data
-        genereteTexture();
+        // genereteTexture();
         // Create a new Mesh, populate with the data and change verticies array to single dimention
         createMesh();
         
@@ -117,21 +142,20 @@ public class MapGenerator : MonoBehaviour
 
     private void genereteMeshData()
     {
-        
-
         int x, z;
         for (z = 0; z < vsize_z; z++)
         {
             for (x = 0; x < vsize_x; x++)
             {
                 verticesPositions[z, x] = new Vector3(x * tileSize, 0, z * tileSize);
-                //vertices[z * vsize_x + x] = new Vector3(x * tileSize, 0, z * tileSize);
+                vertices[z * vsize_x + x] = new Vector3(x * tileSize, 0, z * tileSize);
+                colors[z * vsize_x + x] = Color.black;
                 normals[z * vsize_x + x] = Vector3.up;
                 uv[z * vsize_x + x] = new Vector2((float)x / vsize_x, (float)z / vsize_z);
             }
         }
         Debug.Log("Done Verts!");
-
+        mesh.vertices = vertices;
         for (z = 0; z < size_z; z++)
         {
             for (x = 0; x < size_x; x++)
@@ -152,15 +176,15 @@ public class MapGenerator : MonoBehaviour
 
     private void createMesh()
     {
-        for (int z = 0; z < vsize_z; z++)
-        {
-            for (int x = 0; x < vsize_x; x++)
-            {
-                vertices[z * vsize_x + x] = verticesPositions[z, x];
-            }
-        }
-        Mesh mesh = new Mesh();
+ //       for (int z = 0; z < vsize_z; z++)
+//        {
+//            for (int x = 0; x < vsize_x; x++)
+ //           {
+//                vertices[z * vsize_x + x] = verticesPositions[z, x];
+ //           }
+ //       }
         mesh.vertices = vertices;
+        mesh.colors = colors;
         mesh.triangles = triangles;
         mesh.normals = normals;
         mesh.uv = uv;
@@ -173,6 +197,38 @@ public class MapGenerator : MonoBehaviour
         mesh_filter.mesh = mesh;
         mesh_collider.sharedMesh = mesh;
         Debug.Log("Done Mesh!");
+    }
+
+    public void mainModify()
+    {
+        /*
+        Vector3 point00 = transform.TransformPoint(new Vector3(-0.5f, -0.5f));
+        Vector3 point10 = transform.TransformPoint(new Vector3(0.5f, -0.5f));
+        Vector3 point01 = transform.TransformPoint(new Vector3(-0.5f, 0.5f));
+        Vector3 point11 = transform.TransformPoint(new Vector3(0.5f, 0.5f));
+        */
+        Vector3 point00 = verticesPositions[0,0];
+        Vector3 point10 = verticesPositions[0, 1];
+        Vector3 point01 = verticesPositions[1, 0];
+        Vector3 point11 = verticesPositions[1, 1];
+
+        NoiseMethod method = Noise.noiseMethods[(int)type][dimensions - 1];
+        float stepSize = 1f/size_x;
+        for (int y = 0; y < vsize_z; y++)
+        {
+            Vector3 point0 = Vector3.Lerp(point00, point01, y * stepSize);
+            Vector3 point1 = Vector3.Lerp(point10, point11, y * stepSize);
+            for (int x = 0; x < vsize_x; x++)
+            {
+                Vector3 point = Vector3.Lerp(point0, point1, x * stepSize);
+                float sample = Noise.Sum(method, point, frequency, octaves, lacunarity, persistence);
+                sample = type == NoiseMethodType.Value ? (sample - 0.5f) : (sample * 0.5f);
+                vertices[y * vsize_x + x].y = sample * height;
+                colors[y*vsize_x+x] = coloring.Evaluate(sample + 0.5f);
+            }
+        }
+        mesh.vertices = vertices;
+        mesh.colors = colors;
     }
 
     private void modifyMeshData()
